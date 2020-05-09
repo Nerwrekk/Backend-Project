@@ -1,0 +1,48 @@
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    height: 26px;
+    width: 26px;
+    border-radius: 25px;
+    border: 1px solid rgb(181, 185, 187);
+}
+
+.checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 25px;
+    border: solid rgb(181, 185, 187);
+    border-width: 0 3px 3px 0;
+    transform: rotate(0deg) scale(0);
+    opacity: 1;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    border: 1px solid rgb(181, 185, 187);
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+    left: 10px;
+    top: 4px;
+    width: 4px;
+    height: 14px;
+    border: solid rgb(79, 174, 236);
+    border-width: 0 2px 2px 0;
+    border-radius: 0;
+}

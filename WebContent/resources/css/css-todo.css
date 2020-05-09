@@ -1,0 +1,296 @@
+
+body {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    background: #f5f5f5;
+    color: #4d4d4d;
+    min-width: 230px;
+    max-width: 550px;
+    margin: auto;
+    font-weight: 500;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+/* .destroy */
+.destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+}
+
+.todo-list li .destroy:hover {
+    color: #af5b5e;
+}
+
+.todo-list li .destroy:after {
+	content: 'x';
+}
+
+.todo-list li:hover .destroy {
+	display: block;
+}
+/*--------------*/
+
+/* .completed */
+.completed label {
+    text-decoration: line-through;
+    color: #d9d9d9;
+}
+/*--------------*/
+.toggle-complete {
+    margin: auto 5px;
+    position: absolute;
+    bottom: 5px;
+    top: 5px;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+/* todo */
+.todo {
+    margin: 130px 0 40px 0;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.todo h1 {
+    position: absolute;
+    top: -155px;
+    width: 100%;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+}
+/*--------------*/
+
+/* todo-list */
+.todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-list li {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.todo-list li .todo-label {
+    padding: 15px 15px 15px 60px;
+    display: block;
+    line-height: 1.2;
+    background-color: white;
+}
+/*--------------*/
+
+/* .new-todo */
+.new-todo {
+    padding: 16px 16px 16px 60px;
+    border: none;
+}
+
+.new-todo::placeholder { 
+    color: rgba(147, 150, 149, 0.692);
+
+    opacity: 1; 
+  }
+
+.new-todo, .edit {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: 0;
+    color: inherit;
+    padding: 9px 0px 9px 50px;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+}
+/*--------------*/
+
+/* edit */
+.edit {
+    display: none;
+    padding: 20px 15px 10px 60px;
+    line-height: 1.2;
+    width: 90%;
+    left: 10%;
+    bottom: 15px;
+    padding-left: 45px;
+}
+/*--------------*/
+
+/*editing*/
+.editing .edit {
+    display: block;
+}
+
+/*--------------*/
+
+/* options */
+.options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.options li {
+    display: inline;
+}
+
+.options li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.options li a:hover {
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+}
+
+.options .selected {
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+}
+/*--------------*/
+
+footer {
+    display: block;
+}
+
+/* .footer */
+.footer {
+    color: #777;
+    padding: 10px 15px;
+    height: 20px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    top: 8px;
+    position: relative;
+}
+
+.footer:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    background-color: white;
+    border-top: 1px solid #e6e6e6;
+    box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.2), 
+    0 8px 0 -3px #f6f6f6, 
+    0 12px 4px -3px rgba(0, 0, 0, 0.2),
+    0 16px 0 -6px #f6f6f6, 
+    0 20px 5px -6px rgba(0, 0, 0, 0.2);
+}
+/*--------------*/
+
+/*todo-count*/
+.todo-count {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 25px;
+}
+/*---------------------*/
+
+/*clear-completed*/
+.clear-completed {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 25px;
+}
+
+.clear-completed:hover {
+    text-decoration: underline;
+}
+/*-------------------*/
+
+/* hidden */
+.hidden {
+    display: none;
+}
+/*-------------------*/
+
+/*complete all*/
+.complete-all {
+    text-align: center;
+    border: none;
+    opacity: 0;
+    position: absolute;
+    background: none;
+}
+.complete-all + label {
+    width: 60px;
+    height: 34px;
+    font-size: 0;
+    position: absolute;
+    top: 7px;
+    left: -13px;
+    transform: rotate(90deg);
+}
+
+.complete-all + label::after {
+    content: '❯';
+    font-size: 22px;
+    color: #bebbbb;
+    padding: 10px 27px 10px 27px;
+}
+
+.complete-all:checked + label::after {
+    color: #737373;
+}
+/*-------------------------*/
+
+/*rotate*/
+.rotate {
+    transform: rotate(-90deg);
+}
+/*---------------*/
+
+/*made-by*/
+.made-by {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    top: 30px;
+    color: rgb(161, 157, 157);
+    font-size: 12px;
+    text-align: center;
+}
