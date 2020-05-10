@@ -91,6 +91,22 @@ public class TodoController {
 		return "redirect:/todo/main";
 	}
 	
+	@PostMapping("/toggleCompleteStatus")
+	public String toggleCompletedStatus(@RequestParam("todoId") int id) {
+		
+		Todos todos = todoService.getTodo(id);
+		
+		boolean toggleComplete = todos.getIsCompleted()? false : true;
+		System.out.println("toggleComplete: " + toggleComplete);
+		
+		todos.setIsCompleted(toggleComplete);
+		
+		//add todos will check if the todo already exists and then just update it
+		todoService.addTodos(todos);
+		
+		return "redirect:/todo/main";
+	}
+	
 	@Autowired
 	public void setTodoService(TodoService todoService) {
 		this.todoService = todoService;

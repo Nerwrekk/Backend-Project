@@ -51,8 +51,11 @@
 	                            	</form:form>     
 	                       	 	</div>
 			                        <label class="checkbox-label">
-			                            <input checked type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
-			                            <span class="checkbox-custom"></span>
+			                        <form:form action="toggleCompleteStatus" method="POST">
+			                            <input checked type="submit" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
+	                            		<input type="hidden" name="todoId" value="${tempTodo.id}">
+	                            		<span class="checkbox-custom"></span>
+	                            	</form:form>
 			                        </label>
 		                        <form:form action="updateTodoStatus" modelAttribute="newTodos" method="POST">
 		                        	<form:input path="todo" class="edit" name="edit" value="${tempTodo.todo}"/>
@@ -70,8 +73,11 @@
 	                            	</form:form>  
 	                       	 	</div>
 			                        <label class="checkbox-label">
-				                            <input type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
-			                            <span class="checkbox-custom"></span>
+				                            <form:form action="toggleCompleteStatus" method="POST">
+					                            <input type="submit" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
+			                            		<input type="hidden" name="todoId" value="${tempTodo.id}">
+			                            		<span class="checkbox-custom"></span>
+	                            			</form:form>
 			                        </label>
 	                        	<form:form action="updateTodoStatus" modelAttribute="newTodos" method="POST">
 		                        	<form:input path="todo" class="edit" name="edit" value="${tempTodo.todo}"/>
