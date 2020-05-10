@@ -18,7 +18,6 @@ public class TodoDAOimplement implements TodoDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Todos> getTodos() {
 		
 		//get the current hibernate session

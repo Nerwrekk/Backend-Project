@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.meanpixel.spring.dao.TodoDAO;
 import com.meanpixel.spring.entity.Todos;
@@ -15,9 +16,9 @@ public class TodoServiceImplement implements TodoService {
 	private TodoDAO todoDAO;
 	
 	@Override
+	@Transactional
 	public List<Todos> getTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return todoDAO.getTodos();
 	}
 	
 	

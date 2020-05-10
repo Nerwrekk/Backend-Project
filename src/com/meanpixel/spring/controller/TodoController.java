@@ -8,20 +8,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.meanpixel.spring.dao.TodoDAO;
 import com.meanpixel.spring.entity.Todos;
+import com.meanpixel.spring.service.TodoService;
 
 @Controller
 @RequestMapping("/todo")
 public class TodoController {
 	
-	private TodoDAO todoDAO;
+	private TodoService todoService;
 	
 	@GetMapping("/main")
 	public String showMain(Model model) {
 		
-		//get todos from the dao
-		List<Todos> allTodos = todoDAO.getTodos();
+		//get todos from the service
+		List<Todos> allTodos = todoService.getTodos();
 		
 		//add the todos to the model
 		model.addAttribute("allTodos", allTodos);
@@ -31,7 +31,8 @@ public class TodoController {
 	
 	
 	@Autowired
-	public void setTodoDAO(TodoDAO todoDAO) {
-		this.todoDAO = todoDAO;
+	public void setTodoService(TodoService todoService) {
+		this.todoService = todoService;
 	}
+	
 }
