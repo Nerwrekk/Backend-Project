@@ -68,23 +68,46 @@
                     </c:forEach>
                 </ul>
             </section>
-            <footer class="footer hidden">
-                <span class="todo-count">
-                    <strong></strong> items left
-                </span>
-                <ul class="options">
-                    <li>
-                        <a href="#/all"  class="a-all" onclick="showAllTodos(this)">All</a>
-                    </li>
-                    <li>
-                        <a href="#/active" class="a-active" onclick="showActiveTodos(this)">Active</a>
-                    </li>
-                    <li>
-                        <a href="#/completed" class="a-completed" onclick="showCompletedTodos(this)">Completed</a>
-                    </li>
-                </ul>
-                <button class="clear-completed hidden" onclick="clearAllCompletedTodos()">Clear completed</button>
-            </footer>
+            <c:choose>
+            	<c:when test="${allTodos.size() == 0}">
+		            <footer class="footer hidden">
+		                <span class="todo-count">
+		                    <strong></strong> items left
+		                </span>
+		                <ul class="options">
+		                    <li>
+		                        <a href="#/all"  class="a-all" onclick="showAllTodos(this)">All</a>
+		                    </li>
+		                    <li>
+		                        <a href="#/active" class="a-active" onclick="showActiveTodos(this)">Active</a>
+		                    </li>
+		                    <li>
+		                        <a href="#/completed" class="a-completed" onclick="showCompletedTodos(this)">Completed</a>
+		                    </li>
+		                </ul>
+		                <button class="clear-completed hidden" onclick="clearAllCompletedTodos()">Clear completed</button>
+		            </footer>
+		        </c:when>
+		            <c:otherwise>
+		            	<footer class="footer">
+		                <span class="todo-count">
+		                    <strong></strong> items left
+		                </span>
+		                <ul class="options">
+		                    <li>
+		                        <a href="#/all"  class="a-all" onclick="showAllTodos(this)">All</a>
+		                    </li>
+		                    <li>
+		                        <a href="#/active" class="a-active" onclick="showActiveTodos(this)">Active</a>
+		                    </li>
+		                    <li>
+		                        <a href="#/completed" class="a-completed" onclick="showCompletedTodos(this)">Completed</a>
+		                    </li>
+		                </ul>
+		                <button class="clear-completed" onclick="clearAllCompletedTodos()">Clear completed</button>
+		            </footer>
+		            </c:otherwise>
+            </c:choose>
         </section>
         <footer class="made-by">
             <p>made by Alexander Tanaskovic</p>
