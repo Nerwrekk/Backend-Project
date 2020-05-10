@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.meanpixel.spring.entity.Todos;
 
+/**
+ * @author alexander 
+ *
+ *@apiNote
+ *works as the 'dao'(data access object) to comunicate with our database
+ */
 @Repository
 public class TodoDAOimplement implements TodoDAO {
 	
