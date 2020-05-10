@@ -133,6 +133,7 @@
         <footer class="made-by">
             <p>made by Alexander Tanaskovic</p>
             <p>double click to edit a todo</p>
+            <h2><a href="${pageContext.request.contextPath}/api/todos">Restful api call</a></h2>
         </footer>
         <script src="${pageContext.request.contextPath}/resources/js/addTodo.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/trackTodos.js"></script>
