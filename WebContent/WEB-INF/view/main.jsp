@@ -45,7 +45,10 @@
 	                    	<li class="completed">
 			                    <div class="view">
 	                            	<label class="todo-label" ondblclick="editText(this)">${tempTodo.todo}</label>
-	                            	<button class="destroy" id="destroy" onclick="destroyTodo(this)"></button>    
+	                            	<form:form action="deleteTodo" method="POST">
+		                            		<button class="destroy" id="destroy" type="submit"></button>
+		                            	<input type="hidden" name="todoId" value="${tempTodo.id}">  
+	                            	</form:form>     
 	                       	 	</div>
 			                        <label class="checkbox-label">
 			                            <input checked type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
@@ -61,7 +64,10 @@
 	                    	<li>
 			                    <div class="view">
 	                            	<label class="todo-label" ondblclick="editText(this)">${tempTodo.todo}</label>
-	                            	<button class="destroy" id="destroy" onclick="destroyTodo(this)"></button>    
+		                            	<form:form action="deleteTodo" method="POST">
+		                            		<button class="destroy" id="destroy" type="submit"></button>
+		                            	<input type="hidden" name="todoId" value="${tempTodo.id}">  
+	                            	</form:form>  
 	                       	 	</div>
 			                        <label class="checkbox-label">
 				                            <input type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">

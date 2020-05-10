@@ -10,4 +10,6 @@ public interface TodoDAO {
 	public void addTodos(Todos todos);
 
 	public Todos getTodo(int theId);
+
+	public void deleteTodo(Todos todos);
 }

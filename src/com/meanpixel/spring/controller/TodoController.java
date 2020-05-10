@@ -63,7 +63,7 @@ public class TodoController {
 		todo.setTodo(todos.getTodo());
 
 
-		System.out.println("todo: " + todo.getTodo());
+		System.out.println("todo message: " + todo.getTodo());
 		System.out.println("todo id: " + todo.getId());
 		
 		
@@ -76,6 +76,19 @@ public class TodoController {
 			return "redirect:/todo/main";
 		}
 		
+	}
+	
+	@PostMapping("/deleteTodo")
+	public String deleteSelectedTodo(@RequestParam("todoId") int id) {
+		
+		Todos todos = todoService.getTodo(id);
+		
+		System.out.println("Todo id: " + todos.getId());
+		System.out.println("Todo message: " + todos.getTodo());
+		
+		todoService.deleteTodo(todos);
+		
+		return "redirect:/todo/main";
 	}
 	
 	@Autowired

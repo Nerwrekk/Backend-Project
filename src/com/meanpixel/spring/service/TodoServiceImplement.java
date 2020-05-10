@@ -41,4 +41,11 @@ public class TodoServiceImplement implements TodoService {
 		return todoDAO.getTodo(theId);
 	}
 
+
+	@Override
+	@Transactional
+	public void deleteTodo(Todos todos) {
+		todoDAO.deleteTodo(todos);
+	}
+
 }

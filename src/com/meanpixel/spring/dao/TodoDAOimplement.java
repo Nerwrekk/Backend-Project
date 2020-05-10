@@ -60,4 +60,15 @@ public class TodoDAOimplement implements TodoDAO {
 		return todos;
 	}
 
+	@Override
+	public void deleteTodo(Todos todos) {
+		
+		//get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
+		
+		//delete the todo
+		session.remove(todos);
+		
+	}
+
 }
