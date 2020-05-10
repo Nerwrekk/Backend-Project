@@ -34,18 +34,37 @@
 	                    </label>
 	                    <input class="edit" value="">
                    </li>    
+                   <!--todo template ends here -->
+                   <!-- getting todos from our database -->
                     <c:forEach var="tempTodo" items="${allTodos}">
-	                    <li>
-	                        <div class="view">
-	                            <label class="todo-label" ondblclick="editText(this)">${tempTodo.todo}</label>
-	                            <button class="destroy" id="destroy" onclick="destroyTodo(this)"></button>
-	                        </div>
-	                        <label class="checkbox-label">
-	                            <input type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
-	                            <span class="checkbox-custom"></span>
-	                        </label>
-	                        <input class="edit" value="${tempTodo.todo}">
-	                    </li>    
+	                    <c:choose>
+	                    <c:when test="${tempTodo.isCompleted == true}">
+	                    	<li class="completed">
+			                    <div class="view">
+	                            	<label class="todo-label" ondblclick="editText(this)">${tempTodo.todo}</label>
+	                            	<button class="destroy" id="destroy" onclick="destroyTodo(this)"></button>    
+	                       	 	</div>
+			                        <label class="checkbox-label">
+			                            <input checked type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
+			                            <span class="checkbox-custom"></span>
+			                        </label>
+		                        <input class="edit" value="${tempTodo.todo}">
+		                    </li>  
+	                    </c:when> 
+	                    <c:otherwise>
+	                    	<li>
+			                    <div class="view">
+	                            	<label class="todo-label" ondblclick="editText(this)">${tempTodo.todo}</label>
+	                            	<button class="destroy" id="destroy" onclick="destroyTodo(this)"></button>    
+	                       	 	</div>
+			                        <label class="checkbox-label">
+			                            <input type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
+			                            <span class="checkbox-custom"></span>
+			                        </label>
+		                        <input class="edit" value="${tempTodo.todo}">
+		                    </li>  
+	                    </c:otherwise>             
+                    </c:choose>  
                     </c:forEach>
                 </ul>
             </section>
