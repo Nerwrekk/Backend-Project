@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +15,9 @@
         <section class="todo">
             <header class="header">
                 <h1>todo</h1>
-                <input class="new-todo" placeholder="What do I need to do?" onkeypress="addTask(event)">
+                <form:form action="addTodo" modelAttribute="newTodos" method="POST">
+                	<form:input path="todo" class="new-todo" placeholder="What do I need to do?"/>
+                </form:form>
             </header>
             <section class="main">
                 <div id="complete-all-button">
@@ -48,7 +51,10 @@
 			                            <input checked type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
 			                            <span class="checkbox-custom"></span>
 			                        </label>
-		                        <input class="edit" value="${tempTodo.todo}">
+		                        <form:form action="updateTodoStatus" modelAttribute="newTodos" method="POST">
+		                        	<form:input path="todo" class="edit" name="edit" value="${tempTodo.todo}"/>
+		                        	<input type="hidden" name="todoId" value="${tempTodo.id}">
+	                        	</form:form>
 		                    </li>  
 	                    </c:when> 
 	                    <c:otherwise>
@@ -58,11 +64,14 @@
 	                            	<button class="destroy" id="destroy" onclick="destroyTodo(this)"></button>    
 	                       	 	</div>
 			                        <label class="checkbox-label">
-			                            <input type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
+				                            <input type="checkbox" id="toggle-complete" class="toggle-complete" onclick="completedTodo(this)">
 			                            <span class="checkbox-custom"></span>
 			                        </label>
-		                        <input class="edit" value="${tempTodo.todo}">
-		                    </li>  
+	                        	<form:form action="updateTodoStatus" modelAttribute="newTodos" method="POST">
+		                        	<form:input path="todo" class="edit" name="edit" value="${tempTodo.todo}"/>
+		                        	<input type="hidden" name="todoId" value="${tempTodo.id}">
+	                        	</form:form>
+                   		 	</li>  
 	                    </c:otherwise>             
                     </c:choose>  
                     </c:forEach>

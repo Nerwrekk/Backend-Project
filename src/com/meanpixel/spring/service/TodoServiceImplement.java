@@ -27,4 +27,18 @@ public class TodoServiceImplement implements TodoService {
 		this.todoDAO = todoDAO;
 	}
 
+
+	@Override
+	@Transactional
+	public void addTodos(Todos todos) {
+		todoDAO.addTodos(todos);
+	}
+
+
+	@Override
+	@Transactional
+	public Todos getTodo(int theId) {
+		return todoDAO.getTodo(theId);
+	}
+
 }

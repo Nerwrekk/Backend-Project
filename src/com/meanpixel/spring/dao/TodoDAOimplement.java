@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.meanpixel.spring.entity.Todos;
 
@@ -36,6 +35,29 @@ public class TodoDAOimplement implements TodoDAO {
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	@Override
+	public void addTodos(Todos todos) {
+		
+		//get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
+		
+		//add out new todo to our database
+		session.saveOrUpdate(todos);
+		
+	}
+
+	@Override
+	public Todos getTodo(int theId) {
+		
+		//get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
+		
+		//retrive data from the database
+		Todos todos = session.get(Todos.class, theId);
+		
+		return todos;
 	}
 
 }
